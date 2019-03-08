@@ -20,7 +20,9 @@ function GenerarMeme(){
         ctx.drawImage(canvas, 0, 0, canvas.width * 0.5, canvas.height * 0.5);
 
         // step 3, resize to final size
-        ObjetoImagen.crossOrigin="anonymous";
+        if (/^([\w]+\:)?\/\//.test(ObjetoImagen) && ObjetoImagen.src.indexOf(location.host) === -1) {
+            ObjetoImagen.crossOrigin = "anonymous"; // or "use-credentials"
+            }
         ctx.drawImage(canvas, 0, 0, canvas.width * 0.5, canvas.height * 0.5,
         0, 0, canvas.width, canvas.height);
         
@@ -89,7 +91,9 @@ function cambiarTamanoFuente(){
             ctx.drawImage(canvas, 0, 0, canvas.width * 0.5, canvas.height * 0.5);
 
             // step 3, resize to final size
-            ObjetoImagen.crossOrigin="anonymous";
+            if (/^([\w]+\:)?\/\//.test(ObjetoImagen) && ObjetoImagen.src.indexOf(location.host) === -1) {
+                ObjetoImagen.crossOrigin = "anonymous"; // or "use-credentials"
+            }
             ctx.drawImage(canvas, 0, 0, canvas.width * 0.5, canvas.height * 0.5,
             0, 0, canvas.width, canvas.height);
             // Datos texto Meme (font)
@@ -153,7 +157,9 @@ document.getElementById('image-input').addEventListener('change', function(event
         ctx.drawImage(canvas, 0, 0, canvas.width * 0.5, canvas.height * 0.5);
 
         // step 3, resize to final size
-        ObjetoImagen.crossOrigin="anonymous";
+        if (/^([\w]+\:)?\/\//.test(ObjetoImagen) && ObjetoImagen.src.indexOf(location.host) === -1) {
+            ObjetoImagen.crossOrigin = "anonymous"; // or "use-credentials"
+        }
         ctx.drawImage(canvas, 0, 0, canvas.width * 0.5, canvas.height * 0.5,
         0, 0, canvas.width, canvas.height);
         /// Datos texto Meme (font)
