@@ -18,12 +18,12 @@
             <input type="file" id="image-input"  accept="image/*">
         </p>
         <p>
-            <button href="" onclick="download(this);">
+            <a id="btnDownload">
                 Download
-            </button>
+            </a>
         </p>
         <p>
-            <img src="default.jpg" id="image" crossorigin="Anonymous" style="display:none;" />
+            <img src="default.jpg" id="image" style="display:none;" />
             <canvas id="meme-canvas" title="Right click -> &quot;Save image as...&quot;"></canvas>
         </p>
         <script src="meme-generator.js"></script>

@@ -92,7 +92,7 @@ function cambiarTamanoFuente(){
 
             // step 3, resize to final size
             if (/^([\w]+\:)?\/\//.test(ObjetoImagen) && ObjetoImagen.src.indexOf(location.host) === -1) {
-                ObjetoImagen.crossOrigin = "anonymous"; // or "use-credentials"
+             ObjetoImagen.crossOrigin = "anonymous"; // or "use-credentials"
             }
             ctx.drawImage(canvas, 0, 0, canvas.width * 0.5, canvas.height * 0.5,
             0, 0, canvas.width, canvas.height);
@@ -159,7 +159,7 @@ document.getElementById('image-input').addEventListener('change', function(event
         // step 3, resize to final size
         if (/^([\w]+\:)?\/\//.test(ObjetoImagen) && ObjetoImagen.src.indexOf(location.host) === -1) {
             ObjetoImagen.crossOrigin = "anonymous"; // or "use-credentials"
-        }
+            }
         ctx.drawImage(canvas, 0, 0, canvas.width * 0.5, canvas.height * 0.5,
         0, 0, canvas.width, canvas.height);
         /// Datos texto Meme (font)
@@ -260,15 +260,18 @@ function generateMeme (img, topText, bottomText, topTextSize, bottomTextSize) {
 
 */
 
-function download(e){
+document.getElementById('btnDownload').addEventListener('click', function() {
     var canvas = document.getElementById("meme-canvas");
+    console.log('entró');
     try {
-        localStorage.setItem("saved-image-example", canvas.toDataURL("image/png"));
+        this.href = canvas.toDataURL();
+        this.download = "meme.png";    
     }
     catch(err) {
     console.log("Error: " + err);
     }  
-}
+    console.log('salió');
+});
 
 function init () {
     // Initialize variables
