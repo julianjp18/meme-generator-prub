@@ -256,15 +256,12 @@ function generateMeme (img, topText, bottomText, topTextSize, bottomTextSize) {
 
 function download(e){
     var canvas = document.getElementById("meme-canvas");
-    if (canvas.msToBlob){ //para internet explorer
-        var blob = canvas.msToBlob();
-        window.navigator.msSaveBlob(blob,"one.png" );// la extensión de preferencia pon jpg o png
-    } else {
-        link = document.getElementById("download");
-        //Otros navegadores: Google chrome, Firefox etc...
-        link.href = canvas.toDataURL("image/png");// Extensión .png ("image/png") --- Extension .jpg ("image/jpeg")
-        link.download = filename;
+    try {
+        localStorage.setItem("saved-image-example", canvas.toDataURL("image/png"));
     }
+    catch(err) {
+    console.log("Error: " + err);
+    }  
 }
 
 function init () {
